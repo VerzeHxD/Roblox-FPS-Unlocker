@@ -1,0 +1,34 @@
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.exe
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.deps.json
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.runtimeconfig.json
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.dll
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.pdb
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.csproj.AssemblyReference.cache
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.AssemblyInfoInputs.cache
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.AssemblyInfo.cs
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.csproj.CoreCompileInputs.cache
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox F.03D1A6CA.Up2Date
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.dll
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\refint\Roblox FPS Unlocker.dll
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.pdb
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.genruntimeconfig.cache
+C:\Users\Verze\RiderProjects\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\ref\Roblox FPS Unlocker.dll
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.exe
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.deps.json
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.runtimeconfig.json
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.dll
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Roblox FPS Unlocker.pdb
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.csproj.AssemblyReference.cache
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.AssemblyInfoInputs.cache
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.AssemblyInfo.cs
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.csproj.CoreCompileInputs.cache
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox F.03D1A6CA.Up2Date
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.dll
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\refint\Roblox FPS Unlocker.dll
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.pdb
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\Roblox FPS Unlocker.genruntimeconfig.cache
+C:\Users\Verze\Downloads\Roblox FPS Unlocker\Roblox FPS Unlocker\obj\Debug\net8.0\ref\Roblox FPS Unlocker.dll
