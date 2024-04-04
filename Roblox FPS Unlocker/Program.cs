@@ -1,4 +1,7 @@
 using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
+using System.Threading;
 
 namespace Roblox_FPS_Unlocker
 {
@@ -14,41 +17,38 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("--------------------------------");
                 Thread.Sleep(3000);       // Wait For 3 Seconds
                 ClearConsole();                                             // Clear Console Screen
+                
+                // Get the new FFlag value from user input
+                int newFFlagValue = GetNewFFlagValue();
 
-                // Get the newest Roblox version
-                string newestVersion = GetNewestRobloxVersion(); // Change return type to non-nullable
-                if (newestVersion == null)
+                // Get all Roblox versions
+                string[] versions = GetAllRobloxVersions();
+                if (versions.Length == 0)
                 {
-                    // Display Error Message If Newest Version Not Found
+                    // Display Error Message If No Roblox Versions Found
                     Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                    Console.WriteLine("Error: Unable To Find The Newest Roblox Version Directory, Please Open A Issue About This On My Github");
+                    Console.WriteLine("Error: Unable To Find Any Roblox Version Directory, Please Open A Issue About This On My Github");
                     Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     Thread.Sleep(3000);   // Wait For 3 Seconds
                     ClearConsole();                                         // Clear Console Screen
                     return;
                 }
 
-                // Get The Username Of The Current Windows User  (To Locate Your "%AppData%")
-                string username = Environment.UserName;
-                // Gets The Directory Path For Client Settings
-                string clientSettingsDir = GetClientSettingsDirectory(username, newestVersion);
-                // Construct the file path for client settings
-                string filePath = Path.Combine(clientSettingsDir, "ClientAppSettings.json");
+                // Iterate over each version and create ClientSettings folder and ClientAppSettings.json file
+                foreach (string version in versions)
+                {
+                    string username = Environment.UserName;
+                    string clientSettingsDir = GetClientSettingsDirectory(username, version);
+                    string filePath = Path.Combine(clientSettingsDir, "ClientAppSettings.json");
 
-                // Ensure That The Client Settings Directory Exists
-                EnsureClientSettingsDirectoryExists(clientSettingsDir);
-                // Read Existing Settings From The File
-                string jsonContent = ReadExistingSettings(filePath);
+                    EnsureClientSettingsDirectoryExists(clientSettingsDir);
+                    string jsonContent = ReadExistingSettings(filePath);
 
-                // Parse The JSON Content Into A JObject
-                JObject settingsObject = JObject.Parse(jsonContent);
-                // Get the new FFlag value from user input
-                int newFFlagValue = GetNewFFlagValue();
-                // Update The FFlag Value In The Settings Object
-                UpdateFFlag(settingsObject, newFFlagValue);
+                    JObject settingsObject = JObject.Parse(jsonContent);
+                    UpdateFFlag(settingsObject, newFFlagValue);
 
-                // Write The Updated Settings To The File
-                WriteSettingsToFile(filePath, settingsObject);
+                    WriteSettingsToFile(filePath, settingsObject);
+                }
 
                 // Display Success Message
                 Console.WriteLine("--------------------------------------------------------------------");
@@ -67,97 +67,33 @@ namespace Roblox_FPS_Unlocker
                 Thread.Sleep(3000);       // Wait For 3 Seconds
                 ClearConsole();                                             // Clear Console Screen
             }
-            
+
             Console.ReadLine();                       // Wait For User Input Before Exiting
         }
-        
+
         static void ClearConsole()
         {
             Console.Clear();
         }
 
-        // Get the newest Roblox version
-        static string GetNewestRobloxVersion() // Changed return type to non-nullable
+        // Get all Roblox versions
+        static string[] GetAllRobloxVersions()
         {
-            // Get The Username Of The Current Windows User  (To Locate Your "%AppData%")
             string username = Environment.UserName;
-            // Construct The Directory Path For Roblox Versions
             string versionsDirectory = $@"C:\Users\{username}\AppData\Local\Roblox\Versions";
 
-            // Check If The Versions Directory Exists
             if (!Directory.Exists(versionsDirectory))
             {
-                // Throw An Exception If The Directory Does Not Exist
-                throw new DirectoryNotFoundException($"Versions Directory Not Found: {versionsDirectory}, Please Create A New Issue And Copy And Paste This Into The New Issue Created So I Can Help.");
+                throw new DirectoryNotFoundException($"Versions Directory Not Found: {versionsDirectory}");
             }
 
-            // Get The List Of Version Directories
-            DirectoryInfo directoryInfo = new DirectoryInfo(versionsDirectory);
-            DirectoryInfo[] versionDirectories = directoryInfo.GetDirectories("version-*", SearchOption.TopDirectoryOnly);
-
-            // Throw An Exception If No Version Directories Are Found
-            if (versionDirectories.Length == 0)
-            {
-                throw new InvalidOperationException("No Version Directories Found.");
-            }
-
-            // Initialize newestVersion with a non-null value
-            string newestVersion = versionDirectories[0].Name;
-
-            // Find The Newest Version Among The Directories
-            foreach (DirectoryInfo versionDirectory in versionDirectories)
-            {
-                string versionName = versionDirectory.Name;
-                if (IsVersionNewer(versionName, newestVersion))
-                {
-                    newestVersion = versionName;
-                }
-            }
-
-            return newestVersion;
-        }
-
-        // Check If One Version Is Newer Than Another
-        static bool IsVersionNewer(string version1, string version2)
-        {
-            // Remove The "version-" Prefix Before Splitting
-            version1 = version1.Replace("version-", "");
-            version2 = version2.Replace("version-", "");
-            
-            // Split The Version Strings Into Arrays Of Parts
-            string[] version1Parts = version1.Split('.', '-');
-            string[] version2Parts = version2.Split('.', '-');
-            
-            // Compare The Corresponding Parts Of The Version Strings
-            for (int i = 0; i < Math.Min(version1Parts.Length, version2Parts.Length); i++)
-            {
-                if (int.TryParse(version1Parts[i], out int version1Part) &&
-                    int.TryParse(version2Parts[i], out int version2Part))
-                {
-                    if (version1Part > version2Part)
-                    {
-                        return true;
-                    }
-                    else if (version1Part < version2Part)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            
-            // If We Reach This Point, Versions Are Equal Up To The Shortest Length
-            // Longer Version Is Considered Newer
-            return version1Parts.Length > version2Parts.Length;
+            return Directory.GetDirectories(versionsDirectory, "version-*");
         }
 
         // Get The Directory Path For Client Settings
         static string GetClientSettingsDirectory(string username, string version)
         {
-            return $@"C:\Users\{username}\AppData\Local\Roblox\Versions\{version}\ClientSettings";
+            return Path.Combine(version, "ClientSettings");
         }
 
         // Ensure That The Client Settings Directory Exists
@@ -219,6 +155,8 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("--------------------------------------------------------------------");
                 if (int.TryParse(Console.ReadLine(), out newValue) && newValue >= 0 && newValue <= 1000)
                 {
+                    Thread.Sleep(2000);      // Wait For 2 Seconds
+                    ClearConsole();                                           // Clear Console Screen
                     break; // Break the loop after successful input
                 }
                 else
@@ -237,25 +175,29 @@ namespace Roblox_FPS_Unlocker
         static void UpdateFFlag(JObject settingsObject, int newValue)
         {
             settingsObject["DFIntTaskSchedulerTargetFps"] = newValue;
-            ClearConsole();
-            Console.WriteLine("----------------------------");
-            Console.WriteLine($"FFlag Value Updated To {newValue}.");
-            Console.WriteLine("----------------------------");
-            Thread.Sleep(3000);              // Wait For 3 Seconds
-            ClearConsole();                                                   // Clear Console Screen
         }
 
         // Write the updated settings to the file
         static void WriteSettingsToFile(string filePath, JObject settingsObject)
         {
-            File.WriteAllText(filePath, settingsObject.ToString());
-            Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("ClientAppSettings.json Updated Successfully!");
-            Console.WriteLine("--------------------------------------------");
-            // Wait for 3 seconds
-            Thread.Sleep(3000);             // Wait For 3 Seconds
-            ClearConsole();                                                   // Clear Console Screen
-            Environment.Exit(0);                                           // Exit the application
+            try
+            {
+                File.WriteAllText(filePath, settingsObject.ToString());
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("ClientAppSettings.json Updated Successfully!");
+                Console.WriteLine("--------------------------------------------");
+                Thread.Sleep(3000);      // Wait For 3 Seconds
+                ClearConsole();                                           // Clear Console Screen
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error writing settings to file: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("--------------------------------------------");
+                Thread.Sleep(3000);      // Wait For 3 Seconds
+                ClearConsole();                                           // Clear Console Screen
+            }
+            
         }
     }
 }
