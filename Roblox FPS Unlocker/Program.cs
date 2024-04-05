@@ -105,7 +105,7 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("------------------------------------");
                 Console.WriteLine("ClientSettings Directory Created.");
                 Console.WriteLine("------------------------------------");
-                Thread.Sleep(3000);          // Wait For 3 Seconds
+                Thread.Sleep(1000);          // Wait For 1 Seconds
                 ClearConsole();                                                // Clear Console Screen
             }
             else
@@ -113,8 +113,7 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("ClientSettings Directory Already Exists.");
                 Console.WriteLine("----------------------------------------");
-                // Wait for 3 seconds
-                Thread.Sleep(3000);        // Wait For 3 Seconds
+                Thread.Sleep(1000);        // Wait For 1 Seconds
                 ClearConsole();                                             // Clear Console Screen
             }
         }
@@ -129,8 +128,7 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine("Existing ClientAppSettings.json Found!");
                 Console.WriteLine("--------------------------------------");
-                // Wait for 3 seconds
-                Thread.Sleep(3000);        // Wait For 3 Seconds
+                Thread.Sleep(1000);        // Wait For 1 Seconds
                 ClearConsole();                                              // Clear Console Screen
             }
             else
@@ -138,7 +136,7 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine("No Existing ClientAppSettings.json Found. Creating New File...");
                 Console.WriteLine("--------------------------------------------------------------");
-                Thread.Sleep(3000);          // Wait For 3 Seconds
+                Thread.Sleep(2000);          // Wait For 2 Seconds
                 ClearConsole();                                                // Clear Console Screen
             }
             return jsonContent;
@@ -186,7 +184,7 @@ namespace Roblox_FPS_Unlocker
                 Console.WriteLine("--------------------------------------------");
                 Console.WriteLine("ClientAppSettings.json Updated Successfully!");
                 Console.WriteLine("--------------------------------------------");
-                Thread.Sleep(3000);      // Wait For 3 Seconds
+                Thread.Sleep(1000);      // Wait For 1 Seconds
                 ClearConsole();                                           // Clear Console Screen
             }
             catch (Exception ex)
